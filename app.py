@@ -18,12 +18,8 @@ try:
         st.audio(f'https://raw.githubusercontent.com/PokeAPI/cries/main/cries/pokemon/legacy/{p_id}.ogg')
     with col3:
         st.image(f'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/{p_id}.gif', width=300)
-except:
-    st.warning('Escreva o nome do pokemon correto')
 
-
-
-tab1, tab2, tab3, tab4 = st.tabs(['tipo',
+    tab1, tab2, tab3, tab4 = st.tabs(['tipo',
     'locais',
     'habilidade',
     'status base'])
@@ -60,3 +56,8 @@ with tab4:
             st.metric('Defesa Especial', pokemon['stats'][4]['base_stat'])
         with col6:
             st.metric('Velocidade', pokemon['stats'][5]['base_stat'])
+except:
+    st.warning('Escreva o nome do pokemon correto')
+
+
+
