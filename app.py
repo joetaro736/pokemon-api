@@ -19,7 +19,7 @@ try:
     with col3:
         st.image(f'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/back/{p_id}.gif', width=300)
 
-        tab1, tab2, tab3, tab4 = st.tabs(['tipo',
+    tab1, tab2, tab3, tab4 = st.tabs(['tipo',
         'locais',
         'habilidade',
         'status base'])
