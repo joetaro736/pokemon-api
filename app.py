@@ -1,6 +1,14 @@
 import streamlit as st
 import requests
-nome = st.text_input('Digite o nome do pokemon')
+names = []
+url = "https://pokeapi.co/api/v2/pokemon?limit=100&offset=0"
+while url:
+    res = requests.get(url)
+    data = res.json()
+    for item in data['results']:
+        names.append(item['name'])
+    url = data['next']
+nome = st.selectbox('Selecione o pokemon', names)
 nome = nome.strip().lower()
 col1, col2, col3 = st.columns(3)
 
@@ -57,7 +65,7 @@ try:
             with col6:
                 st.metric('Velocidade', pokemon['stats'][5]['base_stat'])
 except:
-    st.warning('Escreva o nome do pokemon correto')
+    st.warning('Selecione um pokemon')
 
 
 
