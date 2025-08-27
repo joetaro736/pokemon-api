@@ -11,8 +11,9 @@ while url:
 nome = st.selectbox('Selecione o pokemon', names)
 nome = nome.strip().lower()
 col1, col2, col3 = st.columns(3)
-
-
+st.sidebar.title('Projeto de pokemon')
+pikachu = requests.get('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/pikachu')
+st.sidebar.image('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/showdown/25.gif', width=150)
 try:
     pokemon = requests.get(f'https://pokeapi.co/api/v2/pokemon/{nome}').json()
     p_id = pokemon['id']
